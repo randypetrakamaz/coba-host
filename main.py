@@ -13,32 +13,32 @@ collection_riwayat = db['transactions']
 def index():
     return render_template('index.html')
 
-# @app.route("/riwayat")
-# def riwayat_transaksi():
-#     return render_template('riwayat.html')
+@app.route("/riwayat")
+def riwayat_transaksi():
+    return render_template('riwayat.html')
 
-# @app.route("/barang")
-# def barang():
-#     return render_template('barang.html')
+@app.route("/barang")
+def barang():
+    return render_template('barang.html')
 
-# @app.route('/get-barang', methods=['GET'])
-# def get_barang():
-#     try: 
-#         data = collection_barang.find()
-#         result = []
+@app.route('/get-barang', methods=['GET'])
+def get_barang():
+    try: 
+        data = collection_barang.find()
+        result = []
 
-#         for item in data:
-#             result.append({
-#                 'kode_barang': item['kode_barang'],
-#                 'nama': item['nama'],
-#                 'harga_beli': item['harga_beli'],
-#                 'harga_jual': item['harga_jual'],
-#                 'stok': item['stok']
-#             })
-#         return jsonify({'data': result})
-#     except Exception as e:
-#         print(jsonify({'status': 'error', 'message': str(e)}))
-#         return jsonify({'status': 'error', 'message': 'Data tidak tersedia'})
+        for item in data:
+            result.append({
+                'kode_barang': item['kode_barang'],
+                'nama': item['nama'],
+                'harga_beli': item['harga_beli'],
+                'harga_jual': item['harga_jual'],
+                'stok': item['stok']
+            })
+        return jsonify({'data': result})
+    except Exception as e:
+        print(jsonify({'status': 'error', 'message': str(e)}))
+        return jsonify({'status': 'error', 'message': 'Data tidak tersedia'})
 
 # @app.route('/barang/tambah-barang',  methods=['POST'])
 # def tambah_barang():
